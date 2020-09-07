@@ -30,7 +30,7 @@
                 </div>
                 <div class="formLine">
                     <input-text label="Дата Рождения"
-                                placeholder="00/00/0000"
+                                placeholder="ДД.ММ.ГГГГ"
                                 name="dateOfBirth"
                                 @getValue="(value)=>this.client.dateOfBirth = value"
                                 :validation="$v.client.dateOfBirth"
@@ -86,7 +86,6 @@
                             label="Не отправлять СМС"
                             name="noSms"
                             @getValue="(value)=>this.client.noSms = value"
-                            :validation="$v.client.noSms"
                     >
                     </input-checkbox>
                 </div>
@@ -109,7 +108,7 @@
                                 :validation="$v.address.country"
                                 :errorMsg="errorMsg"
                                 width="35%"
-                                >
+                        >
                         </input-text>
                         <input-text
                                 label="Область"
@@ -119,7 +118,7 @@
                                 :validation="$v.address.state"
                                 :errorMsg="errorMsg"
                                 width="35%"
-                                ></input-text>
+                        ></input-text>
                     </div>
                     <div class="formLine">
                         <input-text
@@ -134,16 +133,16 @@
                                 label="Улица"
                                 placeholder="Ленина"
                                 name="city"
-                                @getValue="(value)=>this.address.city= value"
-                                :validation="$v.address.city"
+                                @getValue="(value)=>this.address.street = value"
+                                :validation="$v.address.street"
                                 :errorMsg="errorMsg"
                                 width="40%"></input-text>
                         <input-text
                                 label="Дом"
-                                placeholder="000000"
+                                placeholder="100"
                                 name="index"
-                                @getValue="(value)=>this.client.address.index = value"
-                                :validation="$v.client.phone"
+                                @getValue="(value)=>this.client.address.building = value"
+                                :validation="$v.address.building"
                                 :errorMsg="errorMsg"
                                 width="10%"></input-text>
                     </div>
@@ -152,92 +151,55 @@
                     <div class="groupInputBox_header">Паспорт</div>
                     <div class="formLine">
                         <input-select
-                                label="Группа клиентов"
-                                name="group"
-                                @getValue="(value)=>this.client.group = value"
-                                :validation="$v.client.group"
-                                :errorMsg="errorMsg"
-                                :options="clientGroup"
-                                :mult="true"
-                        ></input-select>
-                        <input-text
-                                label="Страна"
-                                placeholder="Россия"
-                                name="country"
-                                @getValue="(value)=>this.address.country = value"
-                                :validation="$v.address.country"
-                                :errorMsg="errorMsg"
-                                width="35%"
-                        >
-                        </input-text>
-                        <input-text
-                                label="Область"
-                                placeholder="Московская область"
-                                name="index"
-                                @getValue="(value)=>this.address.state = value"
-                                :validation="$v.address.state"
-                                :errorMsg="errorMsg"
-                                width="35%"
-                        ></input-text>
-                    </div>
-                    <div class="formLine">
-                        <input-select
                                 label="Тип документа"
                                 name="type"
-                                @getValue="(value)=>this.document.type = value"
-                                :validation="$v.document.type"
+                                @getValue="(value)=>clientDocument.type = value"
+                                :validation="$v.clientDocument.type"
                                 :errorMsg="errorMsg"
-                                :options="clientGroup"
-                                :mult="true"
+                                :options="documentType"
+                                width="30%"
                         ></input-select>
                         <input-text
-                                label="Улица"
-                                placeholder="Ленина"
-                                name="city"
-                                @getValue="(value)=>this.address.city= value"
-                                :validation="$v.address.city"
+                                label="Серия"
+                                placeholder="0000"
+                                name="lot"
+                                @getValue="(value)=> clientDocument.lot= value"
+                                :validation="$v.clientDocument.lot"
                                 :errorMsg="errorMsg"
-                                width="40%"></input-text>
+                                width="20%"></input-text>
                         <input-text
-                                label="Дом"
+                                label="Номер"
                                 placeholder="000000"
-                                name="index"
-                                @getValue="(value)=>this.client.address.index = value"
-                                :validation="$v.client.phone"
+                                name="number"
+                                @getValue="(value)=> clientDocument.number= value"
+                                :validation="$v.clientDocument.number"
                                 :errorMsg="errorMsg"
-                                width="10%"></input-text>
+                                width="20%"></input-text>
+
                     </div>
+                    <div>
+                        <div class="formLine">
+                            <input-text
+                                    label="Дата выдачи"
+                                    placeholder="ДД.ММ.ГГГГ"
+                                    name="issued"
+                                    @getValue="(value)=> clientDocument.issued= value"
+                                    :validation="$v.clientDocument.issued"
+                                    :errorMsg="errorMsg"
+                                    width="20%"></input-text>
+                            <input-text
+                                    label="Кем Выдан"
+                                    placeholder="ОВД Московсого района"
+                                    name="issuedBy"
+                                    @getValue="(value)=> clientDocument.issuedBy = value"
+                                    :validation="$v.clientDocument.issuedBy"
+                                    :errorMsg="errorMsg"
+                                    width="58%"></input-text>
+                        </div>
+
+                    </div>
+
                 </div>
-
-
-
-                 <!--<div>
-                     <input type="text" v-model="passportData">
-                     <span v-if="$v.passportData.$invalid">
-         Серия и номер паспорта должны быть в формате 1234 567890
-       </span>
-                 </div>-->
-
-
-                <!--
-
-
-                  $v.passportDate.$model - объект, при записи данных в который:
-                  - Vuelidate присвоит переданное значение полю passportDate
-                  - Vuelidate вызовет метод $touch() у объекта $v.passportDate
-
-
-                -->
-                <!-- <div>
-                     <input type="text" v-model.lazy="$v.passportDate.$model">
-                     <span v-if="$v.passportDate.$error">
-         Дата должна быть в формате ДД.ММ.ГГГГ
-       </span>
-                 </div>-->
-                <!--:disabled="$v.$invalid"-->
-                <!-- Поле с несколькими ошибками -->
-
-
                 <button type="submit">
                     Отправить форму
                 </button>
@@ -255,13 +217,14 @@
     import InputCheckbox from "@/components/InputCheckbox";
 
     const alpha = helpers.regex('alpha', /^[a-zA-Zа-яёА-ЯЁ-]*$/);
-    const validDate =  helpers.regex('validDate', /^(0[1-9]|1\d|2\d|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$/);
+    const validDate = helpers.regex('validDate', /^(0[1-9]|1\d|2\d|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$/);
     const zipCode = helpers.regex('zipCode', /^\d{5}[-\s]?(?:\d{4})?$/gm);
-    const address = helpers.regex('street', /^[a-zA-Zа-яёА-ЯЁ0-9-\b\s]*$/gm)
-    const phoneNumber = helpers.regex('phoneNumber',/^(\+7)?9\d{9}$/);
-/*    const passportLot = helpers.regex('passportLot',/^\d{4}$/);
-      const birthCertLot = helpers.regex('birthCertLot', /^((L?X{0,3}|X[LC])(V?I{0,3}|I[VX]){0,3})-([А-Я]{2})/)
-    const documentNumber =helpers.regex('passportNumber', /^\d{6}$/);*/
+    const street = helpers.regex('street', /^(\d*)([a-zA-ZА-яа-я-]+)(\s)*([a-zA-ZА-яа-я\s]+)?$/);
+    const building = helpers.regex("building", /^(\d)+([a-zA-ZА-яа-я-]*)/);
+    const phoneNumber = helpers.regex('phoneNumber', /^(\+7)?9\d{9}$/);
+    const documentLot = helpers.regex('passportLot', /^\d{4}$/);
+    const birthCertLot = helpers.regex('birthCertLot', /^((L?X{0,3}|X[LC])(V?I{0,3}|I[VX]){0,3})-([А-Я]{2})/);
+    const documentNumber = helpers.regex('passportNumber', /^\d{6}$/);
 
 
     export default {
@@ -271,18 +234,18 @@
                 errorMsg: {
                     required: "Поле обязательно для заполнения",
                     phoneNumber: "Введите телефон в формате +7**********",
-                    alpha: `Данное поле может содержать только буквы`,
+                    alpha: `Данное поле может содержать только буквы и знак дефиса`,
                     validDate: `Дата должна быть в формате ДД.ММ.ГГГГ`,
-                    zipCode:`Неправильный формат почтового индекса`,
-                    address:`Поле содержит недопустимые символы`,
-                    documentLot:'Неверный формат. Серия должа содержать 4 цифры',
-                    birthCertLot:'Введите серию свидетельства в формате II-AA',
-                    documentNumber:'Неверный формат.Поле должно содержать 6 цифр'
-
+                    zipCode: `Неверный формат почтового индекса`,
+                    street: `Неверный формат названия улицы`,
+                    building:'Неверный формат номера дома',
+                    documentLot: 'Неверный формат',
+                    birthCertLot: 'Введите серию свидетельства в формате II-AA',
+                    documentNumber: 'Номер должен содержать 6 цифр',
                 },
                 clientGroup: ["VIP", "Проблемные", "ОМС"],
                 doctors: ["Иванов", "Захаров", "Чернышева"],
-                documentType:[],
+                documentType: ['Паспорт', 'Свидетельство о рождении', 'Вод. удостоверение'],
                 client: {
                     name: '',
                     lastName: '',
@@ -291,46 +254,53 @@
                     phone: '',
                     gender: '',
                     group: [],
-                    doctor: '',
+                    doctor: [],
                     noSms: false,
                 },
                 address: {
                     zipCode: '',
                     country: '',
                     state: '',
-                    street:'',
+                    street: '',
                     city: '',
                     house: '',
                 },
-                document: {
-                    type:[],
-                    lot: 0,
-                    number:0,
-                    issued:'',
-                    issuedBy:'',
+                clientDocument: {
+                    type: [],
+                    lot: '',
+                    number: '',
+                    issued: '',
+                    issuedBy: '',
                 }
             };
         },
-        validations: {
-            client: {
-                name: {required, alpha},
-                lastName: {required,alpha},
-                secondName: {alpha},
-                dateOfBirth: {required, validDate},
-                phone: {required,phoneNumber},
-                group: {required},
-                doctor: {alpha},
-            },
-            address: {
-                zipCode: {zipCode},
-                country: {address},
-                state: {address},
-                city:{required,address},
-                street:{address},
-                building:{address}
+        validations() {
+            return {
+                client: {
+                    name: {required, alpha},
+                    lastName: {required, alpha},
+                    secondName: {alpha},
+                    dateOfBirth: {required, validDate},
+                    phone: {required, phoneNumber},
+                    group: {required},
+                    doctor: {alpha},
+                },
+                address: {
+                    zipCode: {zipCode},
+                    country: {alpha},
+                    state: {alpha},
+                    city: {required, alpha},
+                    street: {street},
+                    building: {building}
+                },
+                clientDocument: {
+                    type: {required},
+                    lot:  this.clientDocument.type === 'Свидетельство о рождении' ? {birthCertLot} : {documentLot},
+                    number: {documentNumber},
+                    issued: {required, validDate},
+                    issuedBy:{alpha}
+                }
             }
-
-
         },
         methods: {
             someAction() {

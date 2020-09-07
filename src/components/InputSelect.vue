@@ -24,8 +24,8 @@
                     :size="$props.options.length"
                     :id="name"
                     v-model.trim="validation.$model"
-                    @input="setValue($event.target.value)
-"
+                    @input="setValue($event.target.value)"
+                    class="selectDrop"
             >
                 <option v-for="option of this.$props.options"
                         :value="option"

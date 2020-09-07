@@ -139,11 +139,10 @@ input[type=checkbox] {
 }
 
 .inputError {
-  font-size: 14px;
+  font-size: 0.6em;
   color: red;
-  text-align: right;
   padding-top: 0.2em;
-  align-items: end;
+  margin-bottom: -2em;
 }
 
 .errorInput {
