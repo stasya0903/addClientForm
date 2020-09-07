@@ -1,47 +1,90 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900);
-$containerWidthLg: 1140px;
-$grey:  #ececec;
-body{
+
+$containerWidthLg: 90em;
+$formWidthLg: $containerWidthLg - 2em;
+$formPadding: 1em;
+$formLineWidthLg: $formWidthLg - 2em;
+$formGroupWidthLg: ($formLineWidthLg - 0.4em)/3;
+$grey: #ececec;
+
+body {
   height: 100%;
   line-height: 1.6;
+  font-size: 0.9rem;
+  font-weight: 400;
   font-family: 'Nunito', sans-serif;
 }
+
 * {
   margin: 0;
   padding: 0;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+}
+
 input,
 button,
 select,
-optgroup,
-textarea {
+{
   margin: 0;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
 }
+
+button,
+select {
+  text-transform: none;
+  cursor: pointer
+}
+
+select {
+  line-height: 1.3;
+  color: grey;
+}
+
+option {
+  color: #999;
+  text-align: center
+}
+
+input[type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+
 .container {
   max-width: $containerWidthLg;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
   height: 100%;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: column;
+  width: $formWidthLg;
+  padding: $formPadding;
+  align-items: center;
 }
 
-.formCard{
+.formCard {
   border: 1px solid $grey;
-  margin:15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.17);
-
+  width: 100%;
 }
 
-.formCard_header{
+.formCard_header {
   font-size: 20px;
   width: 100%;
   background-color: azure;
@@ -50,32 +93,61 @@ textarea {
   border-bottom: 1px solid rgba(0, 0, 0, 0.17);
   text-align: center;
 }
-
-.formLine{
+.formLine {
   display: flex;
   justify-content: space-evenly;
   padding: 1em;
+  width:100%
 }
 
-.formGroup{
+.formGroup {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-direction: column;
   font-size: 18px;
+  width: 30%
 }
-.textInputLabel{
+
+.formGroup_input {
+  display: flex;
+  flex-direction: column;
+  width: 100%
+}
+
+.formGroup_radio {
+  width: 90%
+}
+
+.textInputLabel {
   padding-right: 10px;
-  font-size: inherit;
+  font-size: 18px;
   color: grey;
+  text-align: center;
 }
-.textInput{
+
+.textInput {
   font-size: 18px;
   padding: 0.3em;
-  width: 250px;
   border: 1px solid #ececec;
   border-radius: 5px;
 }
-.inputError{
+
+.selectInput {
+  font-size: 18px;
+  padding: 0.3em;
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  height: 2.24em;
+}
+
+.radioInputGroup {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.inputError {
   font-size: 14px;
   color: red;
   text-align: right;
@@ -83,6 +155,51 @@ textarea {
   align-items: end;
 }
 
-.errorInput{
+.errorInput {
   border-color: red;
 }
+
+.required {
+  color: red;
+}
+
+.selectArrow_img {
+  width: .7em;
+  height: .7em;
+  margin-top: .4em;
+  margin-right: .2em;
+}
+
+.selectOption {
+  margin: .5em;
+}
+
+.optionDefault {
+  color: grey;
+}
+
+.selectedOptions {
+  border: 1px solid grey;
+  margin: 0.2em;
+  padding: .2em;
+}
+
+.inputCheckbox {
+  padding-top: 2.4em;
+  text-align: center;
+}
+
+.groupInputBox {
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid grey;
+  font-size: 18px;
+  color: grey;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+

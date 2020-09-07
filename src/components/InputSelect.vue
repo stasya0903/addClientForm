@@ -1,5 +1,5 @@
 <template>
-    <div class="formGroup">
+    <div class="formGroup" :style="`width:${width};`">
         <div class="formGroup_input">
             <label class="textInputLabel" :for="name">{{label}}
                 <span v-if="validation.$params.required" class="required">*</span></label>
@@ -9,7 +9,8 @@
                 <div class="optionsSelected">
                     <span class="optionDefault" v-if="validation.$model.length === 0">Выберите опцию...</span>
                     <template v-else>
-                        <span class="selectedOptions" :key="item.index"
+                        <span  :class="$props.mult ? 'selectedOptions' : 'selectedOption' "
+                               :key="item.index"
                               v-for="item in validation.$model">{{item}}</span>
                     </template>
                 </div>
@@ -49,7 +50,11 @@
             validation: Object,
             options: Array,
             mult: Boolean,
-            errorMsg:Array
+            errorMsg:Object,
+            width: {
+                type: String,
+                default: '30%'
+            }
         },
         data() {
             return {
