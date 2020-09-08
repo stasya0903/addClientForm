@@ -57,15 +57,14 @@ input[type=checkbox] {
   max-width: 100em;
   margin-right: auto;
   margin-left: auto;
-  height: 100%;
+  height: 100vh;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  width: 99.6em;
-  padding: 0.2em;
+  justify-content: space-around;
+  width: 100%;
   align-items: center;
   margin: auto;
 }
@@ -87,7 +86,6 @@ input[type=checkbox] {
 .formLine {
   display: flex;
   justify-content: space-evenly;
-  padding-bottom: 2.5em;
   width: 100%;
 }
 
@@ -104,6 +102,7 @@ input[type=checkbox] {
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-bottom: 2.5em;
 }
 
 .formGroup_radio {
@@ -142,7 +141,7 @@ input[type=checkbox] {
   font-size: 0.6em;
   color: red;
   padding-top: 0.2em;
-  margin-bottom: -2em;
+  margin-top: -4em;
 }
 
 .errorInput {
@@ -152,6 +151,7 @@ input[type=checkbox] {
 .required {
   color: red;
   text-align: left;
+  margin: 0.2em;
 }
 
 .selectArrow_img {
@@ -205,6 +205,8 @@ input[type=checkbox] {
   font-size: 1.5em;
   background-color: white;
   padding: 0.3em;
+  margin-bottom: 0.5em;
+  margin-top: 3.2em;
   border: #ececec 1px solid;
   border-radius: 5px;
   color: grey;
@@ -220,15 +222,15 @@ input[type=checkbox] {
 }
 
 .submitStatus {
-  background-color: #ececec;
   border-radius: 5px;
   padding: 0.8em;
-  margin: 0.5em;
-  width: 80%;
-  font-size: 1.3em;
+  width: 60%;
+  font-size: 1em;
   display: flex;
   text-align: center;
   justify-content: space-between;
+  margin: 0.5em 0.5em -3.9em;
+  border: 1px solid #ececec;
 }
 
 .submitStatus span {
@@ -260,37 +262,55 @@ input[type=checkbox] {
   .selectDrop {
     position: inherit;
   }
+
+  .submitStatus {
+    width: 90%;
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: -3.5em;
+  }
+
+  .submitBtn {
+    margin-top: 5em;
+  }
+
+  .inputCheckbox {
+    width: 100%;
+    font-size: 1.5em;
+    color: grey;
+  }
+
+  .formGroup_radio {
+    font-size: 2em;
+    padding: 0;
+    color: grey;
+  }
 }
-@media screen and (min-width: 750px) and (max-width: 1090px) {
+@media screen and (min-width: 750px) and (max-width: 980px) {
   .form {
     width: 100%;
-    height: 95vh;
-    justify-content: space-evenly;
+    height: 100%;
+    justify-content: space-around;
+  }
+
+  .formCard {
+    height: 100%;
   }
 
   .container {
     margin: 0;
   }
 
-  .formLine {
-    padding-bottom: 3.5em;
-  }
-
-  .formGroup {
-    padding: 1em 0 1em 0;
-  }
-
   .optionDefault {
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
 
-  .selectDrop {
-    top: 4.5em;
+  .submitStatus {
+    margin: -5em 0.5em -5em;
   }
-}
-@media (min-width: 900px) {
-  .form {
-    height: 90vh;
+
+  .submitBtn {
+    margin-top: 0;
   }
 }
 

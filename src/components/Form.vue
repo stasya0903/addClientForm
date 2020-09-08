@@ -5,7 +5,8 @@
                 <p>Добавить Клиента</p>
             </div>
             <form @submit.prevent="someAction()" class="form">
-                <p class="required">* обязательные поля</p>
+
+                <div class="required">* обязательные поля</div>
 
                 <div class="formLine">
                     <input-text label="Фамилия"
@@ -157,7 +158,7 @@
                                 :validation="$v.clientDocument.type"
                                 :errorMsg="errorMsg"
                                 :options="documentType"
-                                width="25%"
+                                width="22%"
                         ></input-select>
                         <input-text
                                 label="Серия"
@@ -166,7 +167,7 @@
                                 @getValue="(value)=> clientDocument.lot= value"
                                 :validation="$v.clientDocument.lot"
                                 :errorMsg="errorMsg"
-                                width="12%"></input-text>
+                                width="15%"></input-text>
                         <input-text
                                 label="Номер"
                                 placeholder="000000"
@@ -196,11 +197,14 @@
 
                     </div>
                 </div>
-                <div class="submitStatus" v-if="submitStatus">{{submitStatus}} <span @click="clearStatus()">X</span>
+                <div class="submitStatus" v-show="submitStatus">{{submitStatus}} <span @click="clearStatus()">X</span>
                 </div>
-                <button type="submit" class="submitBtn">
-                    Создать
-                </button>
+                <div class="submitContainer">
+
+                    <button type="submit" class="submitBtn">
+                        Добавить
+                    </button>
+                </div>
             </form>
         </div>
     </div>
