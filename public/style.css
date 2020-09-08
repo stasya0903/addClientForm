@@ -63,10 +63,12 @@ input[type=checkbox] {
 .form {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   width: 99.6em;
   padding: 0.2em;
   align-items: center;
   margin: auto;
+  height: 95vh;
 }
 
 .formCard {
@@ -81,7 +83,6 @@ input[type=checkbox] {
   background-color: azure;
   border-bottom: 1px solid rgba(0, 0, 0, 0.17);
   text-align: center;
-  padding: 0.5em 0 0.5em 0;
 }
 
 .formLine {
@@ -233,6 +234,56 @@ input[type=checkbox] {
   border: none;
   width: 10%;
   cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    margin: 0;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .formLine {
+    flex-direction: column;
+  }
+
+  .formGroup {
+    width: 95% !important;
+    padding: 1em;
+  }
+
+  .textInput {
+    width: 100% !important;
+  }
+
+  .selectDrop {
+    position: inherit;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .form {
+    width: 100%;
+    height: 95vh;
+    justify-content: space-evenly;
+  }
+
+  .container {
+    margin: 0;
+  }
+
+  .formLine {
+    padding-bottom: 3.5em;
+  }
+
+  .formGroup {
+    padding: 1em 0 1em 0;
+  }
+
+  .optionDefault {
+    font-size: 0.9em;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
