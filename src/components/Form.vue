@@ -315,7 +315,9 @@
             someAction() {
                 this.$v.$touch();
                 if (this.$v.$invalid) {
-                    this.submitStatus = 'Проверьте введеные данные'
+                    this.submitStatus = 'Проверьте введеные данные';
+                    setTimeout(()=>this.submitStatus="", 3000);
+
                 } else {
                     this.submitStatus = 'Отправка.Пожалуйста подождите';
                     this.$v.$reset();
@@ -330,12 +332,17 @@
                             document: Object.assign({type: this.clientDocument.type[0]},
                                 {...this.clientDocument})
                         };
+                        setTimeout(()=>this.submitStatus="", 3000);
                         console.log(JSON.stringify(clientInfo));
                     }, 500)
+
                 }
             },
             clearStatus() {
                 this.submitStatus = '';
+            },
+            clearSubmitStatus(){
+
             },
             clearData() {
                 this.client = {
