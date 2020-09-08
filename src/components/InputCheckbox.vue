@@ -1,6 +1,6 @@
 <template>
-    <div class="formGroup">
-    <div class="inputCheckbox " :style="`width:${width};`">
+    <div class="formGroup" :style="`width:${width};`">
+    <div class="inputCheckbox " >
         <label :for="name" class="textInputLabel">{{$props.label}}</label>
         <input type="checkbox"
                :name="name"
@@ -20,7 +20,7 @@
             value: Boolean,
             width: {
                 type: String,
-                default: '90%'
+                default: '10%'
             }
         },
         methods: {

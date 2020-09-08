@@ -1,5 +1,5 @@
 <template>
-    <div class="formGroup" :style="`width:${width};`">
+    <div class="formGroup selectGroup" :style="`width:${width};`">
         <div class="formGroup_input">
             <label class="textInputLabel" :for="name">{{label}}
                 <span v-if="validation.$params.required" class="required">*</span></label>
@@ -53,7 +53,7 @@
             errorMsg:Object,
             width: {
                 type: String,
-                default: '30%'
+                default: '22%'
             }
         },
         data() {

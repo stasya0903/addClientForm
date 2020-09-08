@@ -1,16 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900);
 
-$containerWidthLg: 90em;
-$formWidthLg: $containerWidthLg - 2em;
-$formPadding: 1em;
-$formLineWidthLg: $formWidthLg - 2em;
+$containerWidthLg: 100em;
+$formPadding: 0.2em;
+$formWidthLg: $containerWidthLg - ($formPadding * 2);
+$formLineWidthLg: $formWidthLg;
 $formGroupWidthLg: ($formLineWidthLg - 0.4em)/3;
 $grey: #ececec;
 
 body {
   height: 100%;
   line-height: 1.6;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 400;
   font-family: 'Nunito', sans-serif;
 }
@@ -76,38 +76,37 @@ input[type=checkbox] {
   width: $formWidthLg;
   padding: $formPadding;
   align-items: center;
+  margin: auto;
 }
 
 .formCard {
   border: 1px solid $grey;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.17);
   width: 100%;
+  margin: auto;
 }
 
 .formCard_header {
   font-size: 20px;
-  width: 100%;
   background-color: azure;
-  padding: 1em 0 1em 0;
-  margin-bottom: 2em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.17);
   text-align: center;
+  padding: .5em 0 .5em 0;
 }
 .formLine {
   display: flex;
   justify-content: space-evenly;
-  padding: 1em;
+  padding-bottom: 2.5em;
   width:100%
 }
-
 .formGroup {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   font-size: 18px;
-  width: 30%
+  width: 22%;
+  height: 100%;
 }
-
 .formGroup_input {
   display: flex;
   flex-direction: column;
@@ -115,13 +114,12 @@ input[type=checkbox] {
 }
 
 .formGroup_radio {
-  width: 90%
+  width: 10%
 }
 
 .textInputLabel {
   padding-right: 10px;
-  font-size: 18px;
-  color: grey;
+  font-size: .8em;
   text-align: center;
 }
 
@@ -160,6 +158,7 @@ input[type=checkbox] {
 
 .required {
   color: red;
+  text-align: left;
 }
 
 .selectArrow_img {
@@ -184,19 +183,60 @@ input[type=checkbox] {
 }
 
 .inputCheckbox {
-  padding-top: 2.4em;
+  padding-top: .4em;
   text-align: center;
 }
 
 .groupInputBox {
-  padding: 1em;
-  margin: 1em;
-  border: 1px solid grey;
+  padding:  0 $formPadding 0 $formPadding;
+  margin: 0 $formPadding 0 $formPadding ;
+  border: 1px solid #ececec;
   font-size: 18px;
   color: grey;
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+.groupInputBox_header{
+
+}
+.selectGroup{
+  position:relative;
+}
+.selectDrop{
+  position: absolute;
+  top: 3.8em;
+  width: 100%;
+}
+.submitBtn{
+  font-size: 1.5em;
+  background-color: white;
+  padding: .3em;
+  border: #ececec 1px solid;
+  border-radius: 5px;
+  color: grey
+}
+.submitBtn:hover{
+  background-color: azure;
+  color:black;
+}
+.submitBtn:focus{
+  outline-color: #999999;
+}
+.submitStatus {
+  background-color: #ececec;
+  padding: 0.4em;
+  margin: 0.5em;
+  width:80%;
+  font-size: 1.3em;
+  display: flex;
+  justify-content: space-between;
+
+}
+.submitStatus button {
+  border: none;
+  width: 10%;
+  cursor: pointer
 }
 
 

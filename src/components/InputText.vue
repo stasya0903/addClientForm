@@ -37,7 +37,7 @@
             errorMsg:Object,
             width: {
                 type: String,
-                default: '30%'
+                default: '22%'
             }
         },
         data() {
