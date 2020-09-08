@@ -43,7 +43,6 @@
         data() {
             return {
                 value: '',
-                paramsArray: [...Object.keys(this.validation.$params)],
             }
         },
         methods: {
@@ -51,6 +50,10 @@
                 this.$emit('setValue', value);
                 this.validation.$touch();
             },
+        },
+        computed:{
+            paramsArray() {
+                return [...Object.keys(this.validation.$params)]}
         }
     }
 </script>

@@ -295,11 +295,16 @@
                 },
                 clientDocument: {
                     type: {required},
-                    lot: this.clientDocument.type === 'Св-во о рождении' ? {birthCertLot} : {documentLot},
+                    lot: this.dynamicRule,
                     number: {documentNumber},
                     issued: {required, validDate},
                     issuedBy: {alpha}
                 }
+            }
+        },
+        computed:{
+            dynamicRule(){
+                return (this.clientDocument.type === 'Св-во о рождении') ? {birthCertLot} : {documentLot}
             }
         },
         methods: {

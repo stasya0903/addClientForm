@@ -283,6 +283,10 @@ input[type=checkbox] {
   .optionDefault {
     font-size: 0.9em;
   }
+
+  .selectDrop {
+    top: 4.5em;
+  }
 }
 @media (min-width: 992px) {
   .form {
