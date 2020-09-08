@@ -221,17 +221,17 @@ input[type=checkbox] {
 
 .submitStatus {
   background-color: #ececec;
-  padding: 0.4em;
+  border-radius: 5px;
+  padding: 0.8em;
   margin: 0.5em;
   width: 80%;
   font-size: 1.3em;
   display: flex;
+  text-align: center;
   justify-content: space-between;
 }
 
-.submitStatus button {
-  border: none;
-  width: 10%;
+.submitStatus span {
   cursor: pointer;
 }
 

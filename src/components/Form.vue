@@ -295,7 +295,7 @@
                 },
                 clientDocument: {
                     type: {required},
-                    lot: this.clientDocument.type === 'Свидетельство о рождении' ? {birthCertLot} : {documentLot},
+                    lot: this.clientDocument.type === 'Св-во о рождении' ? {birthCertLot} : {documentLot},
                     number: {documentNumber},
                     issued: {required, validDate},
                     issuedBy: {alpha}
