@@ -68,7 +68,6 @@ input[type=checkbox] {
   padding: 0.2em;
   align-items: center;
   margin: auto;
-  height: 95vh;
 }
 
 .formCard {
@@ -283,6 +282,11 @@ input[type=checkbox] {
 
   .optionDefault {
     font-size: 0.9em;
+  }
+}
+@media (min-width: 992px) {
+  .form {
+    height: 90vh;
   }
 }
 

@@ -78,7 +78,7 @@ input[type=checkbox] {
   padding: $formPadding;
   align-items: center;
   margin: auto;
-  height: 95vh;
+
 }
 
 .formCard {
@@ -284,7 +284,11 @@ input[type=checkbox] {
 }
 
 
-@media (min-width: 992px) {  }
+@media (min-width: 992px) {
+  .form{
+    height: 90vh;
+  }
+}
 
 
 
