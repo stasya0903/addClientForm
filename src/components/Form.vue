@@ -6,7 +6,7 @@
             </div>
             <form @submit.prevent="someAction()" class="form">
 
-                <div class="required">* обязательные поля</div>
+                <div class="required requiredMsg">* обязательные поля</div>
 
                 <div class="formLine">
                     <input-text label="Фамилия"
@@ -197,9 +197,10 @@
 
                     </div>
                 </div>
-                <div class="submitStatus" v-show="submitStatus">{{submitStatus}} <span @click="clearStatus()">X</span>
-                </div>
+
                 <div class="submitContainer">
+                    <span class="submitStatus" v-show="submitStatus">{{submitStatus}} <span @click="clearStatus()">X</span>
+                </span>
 
                     <button type="submit" class="submitBtn">
                         Добавить
